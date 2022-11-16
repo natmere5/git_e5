@@ -1,0 +1,24 @@
+subject:
+  identifier:
+    - value: ClientID
+      assigner:
+        identifier:
+          value: AssignerValue
+managingOrganization:
+  identifier:
+    value: ManagingOrganizationValue
+participant:
+  - member:
+      code:
+        coding:
+          code: Service
+          display: Description
+      practitioner:
+        identifier:
+          - value: CaregiverID
+            assigner:
+              identifier:
+                value: AssignerValue
+      organization:
+        identifier:
+          value: ManagingOrganizationValue

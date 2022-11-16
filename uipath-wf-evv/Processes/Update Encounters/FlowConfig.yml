@@ -1,0 +1,21 @@
+WorkFlowToExecute:"Update Encounters"
+ExpectedReportFormat:"TABLE"
+MatrixCareAssetName:"MatrixCareLogin"
+FolderName:"Thillai"
+Connection:"Accredited"
+Services:"Web Services"
+FormButtonName:"Quick Entry"
+Environment:"Testing"
+Status:"C"
+Queues":
+   QueueName:"Matrixcare_Update_Encounters_Queue"
+BucketName:"Celltrak"
+StorageFolderName:"Thillai"
+FilePath:"LocationList.json"
+GetTaskRunInputs:
+   ClientName:"Celltrak-Accredited"
+   IsScratchpadUpdate:true
+   TaskRunProcessReference:"update_encounters"
+   TaskRunExpiryPeriod:10
+   TaskRunUpdateRetries:200
+   IsCreateNewRun:true

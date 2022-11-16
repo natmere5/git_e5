@@ -1,0 +1,82 @@
+{
+	"Location and ID-Testing": [
+		{
+			"Location": "Training RC",
+			"ID": "12d6f77c-b897-4f12-bafd-5f23e28f4532"
+		},
+		{
+			"Location": "Training",
+			"ID": "12d6f77c-b897-4f12-bafd-5f23e28f4532"
+		}
+	],
+	"Location and ID-Production": [
+		{
+            "Location": "INLAND REGIONAL CENTER (IRC)",
+            "ID": "41574147-125f-451e-ab8e-f06536528078"
+        },
+        {
+            "Location": "NORTH LOS ANGELES REGIONAL CENTER (NLACRC)",
+            "ID": "00f3373d-8c6f-4e70-840f-dcfd5e9db853"
+        },
+        {
+            "Location": "CENTRAL VALLEY REGIONAL CENTER (CVRC)",
+            "ID": "14f7de63-8cee-4301-b73b-109bbaf5ef59"
+        },
+        {
+            "Location": "REGIONAL CENTER OF EAST BAY (RCEB)",
+            "ID": "17ff674a-2542-40f5-9f91-60ff476dc409"
+        },
+        {
+            "Location": "EAST LOS ANGELES REGIONAL CENTER (ELARC)",
+            "ID": "af92b412-f1f4-44d2-9ef5-92d51ed8da59"
+        },
+        {
+            "Location": "FAR NORTHERN REGIONAL CENTER (FNRC)",
+            "ID": "bb67e42d-5016-49e5-94e3-40d3d877af52"
+        },
+        {
+            "Location": "FRANK D. LANTERMAN REGIONAL CENTER (FDLRC)",
+            "ID": "8df6cf73-e50b-4539-b8e1-0619ccbf2f86"
+        },
+        {
+            "Location": "HARBOR REGIONAL CENTER (HRC)",
+            "ID": "c5ad4571-c94f-415a-a57f-0cdb3890af11"
+        },
+        {
+            "Location": "KERN REGIONAL CENTER (KRC)",
+            "ID": "ff8f49e5-70ee-484d-ad9c-980924bb4541"
+        },
+        {
+            "Location": "NORTH BAY REGIONAL CENTER (NBRC)",
+            "ID": "0e7bc5fd-9b62-491d-9525-20835b5388bc"
+        },
+        {
+            "Location": "REGIONAL CENTER OF ORANGE COUNTY (RCOC)",
+            "ID": "205d32d6-17e9-4389-9b92-11603070b274"
+        },
+        {
+            "Location": "SAN DIEGO REGIONAL CENTER (SDRC)",
+            "ID": "5d965d52-296c-4597-8287-12ff08db1a6d"
+        },
+        {
+            "Location": "SAN GABRIEL POMONA REGIONAL CENTER (SGPRC)",
+            "ID": "bebfc6f4-6df9-4f91-9480-1210c92b50bc"
+        },
+        {
+            "Location": "SOUTH CENTRAL LOS ANGELES REGIONAL CENTER (SCLARC)",
+            "ID": "8ee2128b-067e-4dc5-a1b4-37794efbe368"
+        },
+        {
+            "Location": "TRI-COUNTIES REGIONAL CENTER (TCRC)",
+            "ID": "1fcaa87a-c46f-41ec-b8ac-0011662a3e55"
+        },
+        {
+            "Location": "VALLEY MOUNTAIN REGIONAL CENTER (VMRC)",
+            "ID": "e5e2a2ac-5b59-4fb1-a393-93c979f53721"
+        },
+        {
+            "Location": "WESTSIDE REGIONAL CENTER (WRC)",
+            "ID": "bd4d3678-59cf-4277-9495-740061b7cdb0"
+        }
+	]
+}

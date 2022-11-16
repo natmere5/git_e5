@@ -1,0 +1,18 @@
+{
+    "identifier": [
+      {
+        "value": "IdentifierValue",
+        "assigner": {
+          "identifier": {
+            "value": "AssignerValue"
+          }
+        }
+      }
+    ],
+    "name": {
+      "given": [
+        "FirstName"
+      ],
+      "family": "LastName"
+    }
+}

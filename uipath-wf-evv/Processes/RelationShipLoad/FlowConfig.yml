@@ -1,0 +1,90 @@
+WorkFlowToExecute: Relationship Load
+ExpectedReportFormat: TABLE
+Connection: Accredited
+Services: Web Services
+SPAProcessReference: test_celltrak_wf2_dev
+ScratchPad_Fetch_Recordcount: '1000'
+NumberOfRetries: '1'
+RetryInterval: '00:00:02'
+APICredentialAsset: APILogin
+AuthenticationURL: oauth/token
+CareTeamURL: /api/v1.0/care-team
+BaseAPIUrl: https://api.uat-celltrak.io/
+AssignerValue: e71c9adf-d2cb-4f79-af98-09e0653d5461
+Environment: Testing
+TimeOut: '30'
+BucketName: Celltrak
+StorageFolderName: Default
+FilePath: LocationList.json
+NameFilter:
+  - E5, Karthick
+ClientFilter:
+  - Category: Operations
+    SubCategory: Clients
+  - ItemName: Office
+    ItemType: dropdown
+  - ItemName: Status
+    ItemType: dropdown
+    ItemValue: Active
+CaregiverFilter:
+  - Category: Operations
+    SubCategory: Caregivers
+  - ItemName: Office
+    ItemType: dropdown
+  - ItemName: Status
+    ItemType: dropdown
+    ItemValue: Active
+Report1Filters:
+  - ItemName: Category
+    ItemType: dropdown
+    ItemValue: Operations
+  - ItemName: Subcategory
+    ItemType: dropdown
+    ItemValue: Clients
+Report2Filters:
+  - ItemName: Category
+    ItemType: dropdown
+    ItemValue: Scheduling
+  - ItemName: Subcategory
+    ItemType: dropdown
+    ItemValue: Authorizations
+ReportsToRun:
+  - Report1: Client Caregiver Relationships
+    Report2: Authorization List Excel Export
+ClientCaregiverRelationships_Filters:
+  - ItemName: Office
+    ItemType: multiselect
+  - ItemName: Client Status
+    ItemType: multiselect
+    ItemValue: Active
+  - ItemName: Matching Code
+    ItemType: multiselect
+    ItemValue: Compatibility,DNU
+  - ItemName: Caregiver Status
+    ItemType: multiselect
+    ItemValue: ACTIVE
+  - ItemName: Show No Hours Together
+    ItemType: radiobutton
+    ItemValue: 'True'
+AuthorizationListReport_Filters:
+  - ItemName: Office
+    ItemType: multiselect
+  - ItemName: StartDate
+    ItemType: date
+    ItemValue: 1/1/2000
+  - ItemName: EndDate
+    ItemType: date
+    ItemValue: Today
+  - ItemName: Schedule Status
+    ItemType: multiselect
+    ItemValue: (Select All)
+  - ItemName: Client Status
+    ItemType: multiselect
+    ItemValue: Active
+SelectContextMenu_Filters:
+  MenuName: Export
+  ReportFormat: Excel
+  DeleteFile: 'True'
+  ReportName: Client Caregiver Relationships
+ExportNumberOfRetries: '6'
+ExportNumberOfRetryInterval: '00:00:25'
