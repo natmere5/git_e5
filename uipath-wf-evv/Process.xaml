@@ -8,11 +8,12 @@
       </x:Property.Attributes>
     </x:Property>
     <x:Property Name="MatrixcareAsset" Type="InArgument(x:String)" />
+    <x:Property Name="Config" Type="InArgument(njl:JObject)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1420,1690</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>874,1880</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -42,6 +43,12 @@
       <x:String>UiPath.Activities.System.Properties</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>Element5_Core.Utils.Exception</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -76,6 +83,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Element5.Core</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
@@ -84,7 +92,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked.  &#xA;If there are many decisions, a Flowchart should be used instead." DisplayName="Process" sap:VirtualizedContainerService.HintSize="568,1625" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked.  &#xA;If there are many decisions, a Flowchart should be used instead." DisplayName="Process" sap:VirtualizedContainerService.HintSize="568,1815" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="WorkflowToExecute" />
     </Sequence.Variables>
@@ -94,14 +102,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Extract WorkflowToExecute" sap:VirtualizedContainerService.HintSize="526,439" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Extract WorkflowToExecute" sap:VirtualizedContainerService.HintSize="526,449" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[If(IsNothing(FlowConfig(&quot;WorkFlowToExecute&quot;)), True,  (String.IsNullOrEmpty(FlowConfig(&quot;WorkFlowToExecute&quot;).ToString)))]" DisplayName="Validate WorkFlowExecute in FlowConfig" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_2">
+      <If Condition="[If(IsNothing(FlowConfig(&quot;WorkFlowToExecute&quot;)), True,  (String.IsNullOrEmpty(FlowConfig(&quot;WorkFlowToExecute&quot;).ToString)))]" DisplayName="Validate WorkFlowExecute in FlowConfig" sap:VirtualizedContainerService.HintSize="484,257" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -121,67 +129,53 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[WorkflowToExecute]" sap:VirtualizedContainerService.HintSize="526,1012" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[WorkflowToExecute]" sap:VirtualizedContainerService.HintSize="526,1192" sap2010:WorkflowViewState.IdRef="Switch`1_5">
       <Switch.Default>
         <eue:Throw_Business_Exception DisplayName="Throw Business Exception" ExtraMessage="[WorkflowToExecute]" sap:VirtualizedContainerService.HintSize="284,132" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_5" MessageCode="INVALID_WORKFLOW" __Prefix="[IO.Directory.GetCurrentDirectory]" />
       </Switch.Default>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Entity Load - Client" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Processes\Clients\EntityLoad-Clients.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Entity Load - Client" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Processes\Clients\EntityLoad-Clients.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">
-            <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="FlowConfig" />
-          </InArgument>
-          <InOutArgument x:TypeArguments="ui:Window" x:Key="MatrixCareWindow">
-            <mva:VisualBasicReference x:TypeArguments="ui:Window" ExpressionText="MatrixcareWindow" />
-          </InOutArgument>
-          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">
-            <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="SummaryFieldNames" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="MatrixcareAsset">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MatrixcareAsset" />
-          </InArgument>
+          <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
+          <InOutArgument x:TypeArguments="ui:Window" x:Key="MatrixCareWindow">[MatrixcareWindow]</InOutArgument>
+          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">[SummaryFieldNames]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="MatrixcareAsset">[MatrixcareAsset]</InArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="Location" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Entity Load - Caregiver" sap:VirtualizedContainerService.HintSize="367,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Processes\Caregivers\EntityLoad-Caregivers.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Entity Load - Caregiver" sap:VirtualizedContainerService.HintSize="367,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Processes\Caregivers\EntityLoad-Caregivers.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">
-            <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="FlowConfig" />
-          </InArgument>
-          <InOutArgument x:TypeArguments="ui:Window" x:Key="MatrixCareWindow">
-            <mva:VisualBasicReference x:TypeArguments="ui:Window" ExpressionText="MatrixcareWindow" />
-          </InOutArgument>
-          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">
-            <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="SummaryFieldNames" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="MatrixcareAsset">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MatrixcareAsset" />
-          </InArgument>
+          <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
+          <InOutArgument x:TypeArguments="ui:Window" x:Key="MatrixCareWindow">[MatrixcareWindow]</InOutArgument>
+          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">[SummaryFieldNames]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="MatrixcareAsset">[MatrixcareAsset]</InArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="Location" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Relationship Load" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\RelationShipLoad\Relationship Load.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Relationship Load" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\RelationShipLoad\Relationship Load.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">
-            <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="FlowConfig" />
-          </InArgument>
-          <InArgument x:TypeArguments="ui:Window" x:Key="MatrixcareWindow">
-            <mva:VisualBasicValue x:TypeArguments="ui:Window" ExpressionText="MatrixcareWindow" />
-          </InArgument>
-          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">
-            <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="SummaryFieldNames" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="MatrixcareCredentialAsset">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MatrixcareAsset" />
-          </InArgument>
+          <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
+          <InArgument x:TypeArguments="ui:Window" x:Key="MatrixcareWindow">[MatrixcareWindow]</InArgument>
+          <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">[SummaryFieldNames]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="MatrixcareCredentialAsset">[MatrixcareAsset]</InArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="Location" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" x:Key="Update Encounters" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Processes\Update Encounters\Upload Encounters.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Update Encounters" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Processes\Update Encounters\Upload Encounters.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
           <InOutArgument x:TypeArguments="ui:Window" x:Key="MatrixCareWindow">[MatrixcareWindow]</InOutArgument>
           <InArgument x:TypeArguments="x:String" x:Key="MatrixcareAsset">[MatrixcareAsset]</InArgument>
           <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">[SummaryFieldNames]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="Download Work Item Details" DisplayName="Invoke Download Work Item Details workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Processes\Download Work Item Details\Download Work Item Details.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="njl:JObject" x:Key="Config">
+            <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="Config" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="MainFolder">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IO.Directory.GetCurrentDirectory" />
+          </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Switch>

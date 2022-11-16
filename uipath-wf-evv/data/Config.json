@@ -4,12 +4,12 @@
     "acme_url_login" : "https://acme-test.uipath.com/",
     "acme_url_workitems" : "https://acme-test.uipath.com/work-items/",
     "workItem_date" : "2018",
-    "final_report_path" : "{0}\\Downloads\\DownloadWorkItemDetails\\FinalReport.xlsx",
-    "monitored_folder" : "{0}\\Downloads\\DownloadWorkItemDetails\\WIID",
+    "filter_column" : "Date",
+    "final_report_path" : "\\DownloadWorkItemDetails\\FinalReport.xlsx",
+    "monitored_folder" : "\\DownloadWorkItemDetails\\WIID",
     "comments" : "Downloaded,Not Downloaded",
     "button_text" : "Download Check Request",
-    "pdf_url" : "{0}\\Downloads\\DownloadWorkItemDetails\\WIID\\WIID_{1}.pdf",
-    "zip_folder" : "{0}\\Downloads\\DownloadWorkItemDetails\\Check_reports",
+    "pdf_url" : "\\DownloadWorkItemDetails\\WIID\\WIID_{0}.pdf",
     "zip_file" : "Check Reports",
     "email_to" : "natalia.mercado@e5.ai",
     "email_subject" : "Final report",
@@ -17,6 +17,7 @@
     "smtp_server" : "smtp.gmail.com",
     "smtp_port" : "587",
     "columns_name" : "DownloadStatus,ClientID,Reason",
+    "final_report_params" : "WorkItems,A1",
     "LANDING_PAGE_IS_INVALID" : "E0001 ## Landing page is invalid",
     "INVALID_INPUT_PARAMS" : "E0002 ## Invalid input params",
     "LOGIN_PAGE_NOT_FOUND" : "E0003 ## Login Page not found",
@@ -45,5 +46,6 @@
     "DASHBOARD_PAGE_FAILED" : "E0026 ## Dashboard Page failed",
     "SEND_REPORT_FAILED" : "E0027 ## Send report failed",
     "GO_TO_WORK_ITEM_FAILED" : "E0028 ## Go to Work Item failed",
-    "EXTRACT_WORK_ITEMS_FAILED" : "E0029 ## Extract work items failed"
+    "EXTRACT_WORK_ITEMS_FAILED" : "E0029 ## Extract work items failed",
+    "GET_CREDENTIAL_ERROR" : "E0030 ## Error getting credentials"
 }
